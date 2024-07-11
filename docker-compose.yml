@@ -1,0 +1,14 @@
+version: '1'
+
+services:
+  db:
+    build: .
+    container_name: postgres_container
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: 'user'
+      POSTGRES_PASSWORD: 'password'
+    command: ["sh", "-c", "docker-entrypoint.sh postgres & while true; do sleep 1; done"]
+volumes:
+  db-store:

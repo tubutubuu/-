@@ -106,3 +106,47 @@ CREATE TABLE all_data_types (
     array_col INTEGER[],                  -- 配列
     composite_col my_composite_type       -- 複合型
 );
+--------------------------------------------
+INSERT INTO all_data_types (
+    int_col, smallint_col, bigint_col, decimal_col, numeric_col,
+    real_col, double_col, money_col, char_col, varchar_col, text_col, bytea_col,
+    date_col, time_col, timetz_col, timestamp_col, timestamptz_col, interval_col,
+    boolean_col, point_col, line_col, lseg_col, box_col, path_col, polygon_col, circle_col,
+    cidr_col, inet_col, macaddr_col, uuid_col, json_col, jsonb_col, xml_col, array_col, composite_col
+) VALUES (
+    1,                   -- int_col
+    2,                   -- smallint_col
+    1234567890123456789, -- bigint_col
+    1234.56,             -- decimal_col
+    1234.56,             -- numeric_col
+    1.23,                -- real_col
+    1.23456789,          -- double_col
+    '$1234.56',          -- money_col
+    'char10',            -- char_col
+    'varchar255',        -- varchar_col
+    'Some text',         -- text_col
+    '\xDEADBEEF',        -- bytea_col (hex format)
+    '2024-07-15',        -- date_col
+    '12:34:56',          -- time_col
+    '12:34:56+00',       -- timetz_col
+    '2024-07-15 12:34:56',             -- timestamp_col
+    '2024-07-15 12:34:56+00',          -- timestamptz_col
+    '1 year 2 months 3 days',          -- interval_col
+    TRUE,                              -- boolean_col
+    '(1,2)',                           -- point_col
+    '[(0,0),(1,1)]',                   -- line_col
+    '[(0,0),(1,1)]',                   -- lseg_col
+    '((0,0),(1,1))',                   -- box_col
+    '[(0,0),(1,1)]',                   -- path_col
+    '((0,0),(1,1),(0,1))',             -- polygon_col
+    '<(1,1),1>',                       -- circle_col
+    '192.168.1.0/24',                  -- cidr_col
+    '192.168.1.1',                     -- inet_col
+    '08:00:2b:01:02:03',               -- macaddr_col
+    '123e4567-e89b-12d3-a456-426614174000', -- uuid_col
+    '{"key": "value"}',                -- json_col
+    '{"key": "value"}',                -- jsonb_col
+    '<foo>bar</foo>',                  -- xml_col
+    '{1,2,3}',                         -- array_col
+    ROW(1, 'example')                  -- composite_col
+);

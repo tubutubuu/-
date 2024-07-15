@@ -27,10 +27,13 @@ public class Main {
         }
         try (SqlSession session = sqlSessionFactory.openSession()) {
             BlogMapper mapper = session.getMapper(BlogMapper.class);
-            Blog blog = mapper.selectBlog("this is ");
+            //AllDataTypesMapper mapper = session.getMapper(AllDataTypesMapper.class);
+            //AllDataTypes allDataTypes = mapper.selectById();
+           // System.out.println(allDataTypes);
+           Blog blog = mapper.selectBlog("pompo");
+            System.out.println(blog.text);
 
-
-            System.out.println("column value is  "+blog.text );
+           // System.out.println("column value is  "+blog.text );
         }
 
 

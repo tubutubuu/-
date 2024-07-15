@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AllDataTypesMapper">
+
+    <resultMap id="AllDataTypesResultMap" type="org.example.AllDataTypes">
+        <id column="serial_col" property="serialCol"/>
+        <result column="int_col" property="intCol"/>
+        <result column="smallint_col" property="smallintCol"/>
+        <result column="bigint_col" property="bigintCol"/>
+        <result column="decimal_col" property="decimalCol"/>
+        <result column="numeric_col" property="numericCol"/>
+        <result column="real_col" property="realCol"/>
+        <result column="double_col" property="doubleCol"/>
+        <result column="money_col" property="moneyCol"/>
+        <result column="char_col" property="charCol"/>
+        <result column="varchar_col" property="varcharCol"/>
+        <result column="text_col" property="textCol"/>
+        <result column="bytea_col" property="byteaCol"/>
+        <result column="date_col" property="dateCol"/>
+        <result column="time_col" property="timeCol"/>
+        <result column="timetz_col" property="timetzCol"/>
+        <result column="timestamp_col" property="timestampCol"/>
+        <result column="timestamptz_col" property="timestamptzCol"/>
+        <result column="interval_col" property="intervalCol"/>
+        <result column="boolean_col" property="booleanCol"/>
+        <result column="point_col" property="pointCol"/>
+        <result column="line_col" property="lineCol"/>
+        <result column="lseg_col" property="lsegCol"/>
+        <result column="box_col" property="boxCol"/>
+        <result column="path_col" property="pathCol"/>
+        <result column="polygon_col" property="polygonCol"/>
+        <result column="circle_col" property="circleCol"/>
+        <result column="cidr_col" property="cidrCol"/>
+        <result column="inet_col" property="inetCol"/>
+        <result column="macaddr_col" property="macaddrCol"/>
+      <!--  <result column="uuid_col" property="uuidCol"/>-->
+        <result column="json_col" property="jsonCol"/>
+        <result column="jsonb_col" property="jsonbCol"/>
+        <result column="xml_col" property="xmlCol"/>
+        <!--<result column="array_col" property="arrayCol"/>-->
+      <!--  <association property="compositeCol" column="{id=composite_col.id, description=composite_col.description}" javaType="org.example.AllDataTypes.CompositeType"/> !-->
+    </resultMap>
+
+    <select id="selectById" resultMap="AllDataTypesResultMap">
+        SELECT * FROM all_data_types
+    </select>
+
+    </mapper >
+
+
+
+
+
+

@@ -1,14 +1,28 @@
-version: '1'
+version: '3'
 
 services:
   db:
     build: .
-    container_name: postgres_container
+    container_name: postgres
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
-      POSTGRES_USER: 'user'
-      POSTGRES_PASSWORD: 'password'
-    command: ["sh", "-c", "docker-entrypoint.sh postgres & while true; do sleep 1; done"]
+      POSTGRES_USER: "pompom"
+      POSTGRES_PASSWORD: "pompom"
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+    command: ["sh", "-c", "while true; do sleep 1; done"]
+  pgadmin4:
+    image: dpage/pgadmin4
+    ports:
+      - 8888:80
+    volumes:
+      - pgadmin4_data:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: anus@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: pompom
+    depends_on:
+      - db
 volumes:
-  db-store:
+  pgadmin4_data:
+  db_data:

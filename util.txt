@@ -48,3 +48,61 @@ RUN postgres -D /usr/local/pgsql/data
 
 
 RUN  pg_ctl -D /usr/local/pgsql/data initdb
+
+
+RUN sudo adduser pompom --disabled-password
+RUN echo "pompom:pompom" | sudo chpasswd
+
+
+
+RUN mkdir -p /usr/local/pgsql/data
+RUN chown postgres /usr/local/pgsql/data
+USER postgres
+
+
+RUN  pg_ctl -D /usr/local/pgsql/data initdb
+RUN echo "host  all  all 0.0.0.0/0 md5">> /usr/local/pgsql/data/pg_hba.conf
+--------------------------------
+CREATE TYPE my_composite_type AS (
+    id INTEGER,
+    description TEXT
+);
+--------------------------------
+CREATE TABLE all_data_types (
+    serial_col SERIAL PRIMARY KEY,        -- 自動インクリメントの整数
+    int_col INTEGER,                      -- 整数
+    smallint_col SMALLINT,                -- 小さい整数
+    bigint_col BIGINT,                    -- 大きい整数
+    decimal_col DECIMAL(10, 2),           -- 固定小数点数
+    numeric_col NUMERIC(10, 2),           -- 固定小数点数
+    real_col REAL,                        -- 単精度浮動小数点数
+    double_col DOUBLE PRECISION,          -- 倍精度浮動小数点数
+    money_col MONEY,                      -- 通貨型
+    char_col CHAR(10),                    -- 固定長文字列
+    varchar_col VARCHAR(255),             -- 可変長文字列
+    text_col TEXT,                        -- テキスト
+    bytea_col BYTEA,                      -- バイナリデータ
+    date_col DATE,                        -- 日付
+    time_col TIME,                        -- 時間
+    timetz_col TIME WITH TIME ZONE,       -- タイムゾーン付き時間
+    timestamp_col TIMESTAMP,              -- タイムスタンプ
+    timestamptz_col TIMESTAMP WITH TIME ZONE, -- タイムゾーン付きタイムスタンプ
+    interval_col INTERVAL,                -- 時間間隔
+    boolean_col BOOLEAN,                  -- ブール値
+    point_col POINT,                      -- 幾何座標
+    line_col LINE,                        -- 幾何線
+    lseg_col LSEG,                        -- 線分
+    box_col BOX,                          -- 矩形
+    path_col PATH,                        -- パス（点の集合）
+    polygon_col POLYGON,                  -- 多角形
+    circle_col CIRCLE,                    -- 円
+    cidr_col CIDR,                        -- IPアドレス/ネットワーク
+    inet_col INET,                        -- IPアドレス
+    macaddr_col MACADDR,                  -- MACアドレス
+    uuid_col UUID,                        -- UUID
+    json_col JSON,                        -- JSONデータ
+    jsonb_col JSONB,                      -- JSONデータ（二進形式）
+    xml_col XML,                          -- XMLデータ
+    array_col INTEGER[],                  -- 配列
+    composite_col my_composite_type       -- 複合型
+);

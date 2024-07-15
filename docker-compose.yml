@@ -18,7 +18,7 @@ services:
     volumes:
       - pgadmin4_data:/var/lib/pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: anus@gmail.com
+      PGADMIN_DEFAULT_EMAIL: yahoo@gmail.com
       PGADMIN_DEFAULT_PASSWORD: pompom
     depends_on:
       - db

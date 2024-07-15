@@ -7,11 +7,10 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: "pompom"
-      POSTGRES_PASSWORD: "pompom"
+      POSTGRES_USER: "hello"
+      POSTGRES_PASSWORD: "hello"
     volumes:
       - ./dump:/docker-entrypoint-initdb.d
-    command: ["sh", "-c", "while true; do sleep 1; done"]
   pgadmin4:
     image: dpage/pgadmin4
     ports:

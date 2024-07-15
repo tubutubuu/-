@@ -37,7 +37,7 @@ ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION
 -- Database "template1" dump
 --
 
-¥connect template1
+\c template1
 
 --
 -- PostgreSQL database dump
@@ -99,7 +99,7 @@ CREATE DATABASE playgrounddb WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_
 
 ALTER DATABASE playgrounddb OWNER TO postgres;
 
-¥connect playgrounddb
+\c playgrounddb
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -131,7 +131,7 @@ GRANT ALL ON DATABASE playgrounddb TO pompom;
 -- Database "postgres" dump
 --
 
-¥connect postgres
+\c postgres
 
 --
 -- PostgreSQL database dump

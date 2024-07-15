@@ -1,6 +1,6 @@
 FROM  postgres:latest
 
-ADD ./dump/dump.sql /docker-entrypoint-initdb.d
+ADD dump/init.sql /docker-entrypoint-initdb.d
 RUN apt update
 RUN apt-get install -y vim
 RUN apt install sudo

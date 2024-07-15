@@ -16,7 +16,7 @@
     </environments>
     <mappers>
         <mapper resource="BlogMapper.xml"/>
-        <mapper class="org.example.BlogMapper"/>
+
         <mapper resource="allDataType.xml"/>
         <mapper class="org.example.AllDataTypesMapper"/>
     </mappers>

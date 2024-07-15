@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="AllDataTypesMapper">
+<mapper namespace="org.example.AllDataTypesMapper">
 
     <resultMap id="AllDataTypesResultMap" type="org.example.AllDataTypes">
         <id column="serial_col" property="serialCol"/>
         <result column="int_col" property="intCol"/>
         <result column="smallint_col" property="smallintCol"/>
         <result column="bigint_col" property="bigintCol"/>
-        <result column="decimal_col" property="decimalCol"/>
+       <result column="decimal_col" property="decimalCol"/>
         <result column="numeric_col" property="numericCol"/>
         <result column="real_col" property="realCol"/>
         <result column="double_col" property="doubleCol"/>

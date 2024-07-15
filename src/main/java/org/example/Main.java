@@ -26,12 +26,12 @@ public class Main {
             System.out.println("no configFile");
         }
         try (SqlSession session = sqlSessionFactory.openSession()) {
-            BlogMapper mapper = session.getMapper(BlogMapper.class);
+            AllDataTypesMapper mapper = session.getMapper(AllDataTypesMapper.class);
             //AllDataTypesMapper mapper = session.getMapper(AllDataTypesMapper.class);
             //AllDataTypes allDataTypes = mapper.selectById();
-            // System.out.println(allDataTypes);
-            Blog blog = mapper.selectBlog("pompo");
-            System.out.println(blog.text);
+            // System.out.println(allDataTypes);=
+           AllDataTypes t =  mapper.selectById();
+           System.out.println(t);
 
            // System.out.println("column value is  "+blog.text );
         }

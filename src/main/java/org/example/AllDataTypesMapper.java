@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.*;
 
 public interface AllDataTypesMapper {
 
-    @Select("SELECT * FROM all_data_types")
+
     AllDataTypes selectById();
 
 }

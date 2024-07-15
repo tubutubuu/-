@@ -59,11 +59,11 @@ public class AllDataTypes {
     public Integer intCol;
     public Short smallintCol;
     public Long bigintCol;
-    public BigDecimal decimalCol;
-    public BigDecimal numericCol;
+    public Integer decimalCol;
+    public Integer numericCol;
     public Float realCol;
     public Double doubleCol;
-    public BigDecimal moneyCol;
+    public String moneyCol;
     public String charCol;
     public String varcharCol;
     public String textCol;

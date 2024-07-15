@@ -18,6 +18,6 @@
         <mapper resource="BlogMapper.xml"/>
 
         <mapper resource="allDataType.xml"/>
-        <mapper class="org.example.AllDataTypesMapper"/>
+
     </mappers>
 </configuration>

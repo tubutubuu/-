@@ -33,7 +33,7 @@
         <result column="cidr_col" property="cidrCol"/>
         <result column="inet_col" property="inetCol"/>
         <result column="macaddr_col" property="macaddrCol"/>
-      <!--  <result column="uuid_col" property="uuidCol"/>-->
+        <result column="uuid_col" property="uuidCol"/>
         <result column="json_col" property="jsonCol"/>
         <result column="jsonb_col" property="jsonbCol"/>
         <result column="xml_col" property="xmlCol"/>

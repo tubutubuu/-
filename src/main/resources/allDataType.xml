@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.example.AllDataTypesMapper">
+<mapper namespace="org.mapper.AllDataTypesMapper">
 
     <resultMap id="AllDataTypesResultMap" type="org.example.AllDataTypes">
         <id column="serial_col" property="serialCol"/>
@@ -43,6 +43,10 @@
 
     <select id="selectById" resultMap="AllDataTypesResultMap">
         SELECT * FROM all_data_types
+        <where>
+            serial_col = 1
+
+        </where>
     </select>
 
     </mapper >

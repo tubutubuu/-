@@ -1,4 +1,4 @@
-package org.example;
+package org.mapper;
 
 
 import org.example.AllDataTypes;
@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.*;
 public interface AllDataTypesMapper {
 
 
-    AllDataTypes selectById();
+    List<AllDataTypes> selectById();
 
 }

@@ -45,8 +45,9 @@
         SELECT * FROM all_data_types
         <where>
             serial_col = 1
-
         </where>
+
+
     </select>
 
     </mapper >

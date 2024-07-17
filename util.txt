@@ -150,3 +150,29 @@ INSERT INTO all_data_types (
     '{1,2,3}',                         -- array_col
     ROW(1, 'example')                  -- composite_col
 );
+
+
+
+data
+id dataRelatedSomethingId
+
+dataRelatedSomething
+dataRelatedSomethingid somethingId
+
+something
+somethingId somethingValue
+
+
+means ….
+
+SELECT *
+FROM data
+LEFT JOIN dataRelatedSomething ON data.dataRelatedSomethingId = dataRelatedSomething.dataRelatedSomethingId
+LEFT JOIN something ON dataRelatedSomething.somethingId = something.somethingId;
+
+
+——no used———
+select * from data
+left join dataRelatedSomething on dataRelatedSomethingId
+left join something on somethingId
+

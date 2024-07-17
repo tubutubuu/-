@@ -170,6 +170,24 @@ FROM data
 LEFT JOIN dataRelatedSomething ON data.dataRelatedSomethingId = dataRelatedSomething.dataRelatedSomethingId
 LEFT JOIN something ON dataRelatedSomething.somethingId = something.somethingId;
 
+to be ...
+-- dataテーブルの作成
+CREATE TABLE data (
+    id INT PRIMARY KEY,
+    dataRelatedSomethingId TEXT
+);
+
+-- dataRelatedSomethingテーブルの作成
+CREATE TABLE dataRelatedSomething (
+    dataRelatedSomethingId TEXT PRIMARY KEY,
+    somethingId TEXT
+);
+
+-- somethingテーブルの作成
+CREATE TABLE something (
+    somethingId TEXT PRIMARY KEY,
+    somethingValue VARCHAR(255)
+);
 
 ——no used———
 select * from data

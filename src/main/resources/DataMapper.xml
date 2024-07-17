@@ -11,11 +11,14 @@
         <result column="something_col" property="something_field"/>
     </resultMap>
 
-    <select id="select"  resultMap="dataMap">
+    <select id="select" parameterType="int" resultMap="dataMap">
         SELECT *
         FROM data
         LEFT JOIN dataRelatedSomething ON data.dataRelatedSomethingId = dataRelatedSomething.dataRelatedSomethingId
-        LEFT JOIN something ON dataRelatedSomething.somethingId = something.somethingId;
+        LEFT JOIN something ON dataRelatedSomething.somethingId = something.somethingId
+        <where>
+            #{id}
+        </where>
 
     </select>
 </mapper>

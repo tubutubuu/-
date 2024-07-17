@@ -189,6 +189,18 @@ CREATE TABLE something (
     somethingValue VARCHAR(255)
 );
 
+for using ...
+INSERT INTO data (id, dataRelatedSomethingId) VALUES (1, '100A');
+INSERT INTO data (id, dataRelatedSomethingId) VALUES (2, '101B');
+
+-- dataRelatedSomethingテーブルへのデータ挿入
+INSERT INTO dataRelatedSomething (dataRelatedSomethingId, somethingId) VALUES ('100A', '200X');
+INSERT INTO dataRelatedSomething (dataRelatedSomethingId, somethingId) VALUES ('101B', '201Y');
+
+-- somethingテーブルへのデータ挿入
+INSERT INTO something (somethingId, somethingValue) VALUES ('200X', 'Value 1');
+INSERT INTO something (somethingId, somethingValue) VALUES ('201Y', 'Value 2');
+
 ——no used———
 select * from data
 left join dataRelatedSomething on dataRelatedSomethingId

@@ -3,6 +3,7 @@ package org.example;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.dto.AllDataTypes;
 import org.mapper.AllDataTypesMapper;
 
 import java.io.*;

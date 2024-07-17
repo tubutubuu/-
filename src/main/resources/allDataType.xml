@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mapper.AllDataTypesMapper">
 
-    <resultMap id="AllDataTypesResultMap" type="org.example.AllDataTypes">
+    <resultMap id="AllDataTypesResultMap" type="org.dto.AllDataTypes">
         <id column="serial_col" property="serialCol"/>
         <result column="int_col" property="intCol"/>
         <result column="smallint_col" property="smallintCol"/>
@@ -38,7 +38,7 @@
         <result column="jsonb_col" property="jsonbCol"/>
         <result column="xml_col" property="xmlCol"/>
         <!--<result column="array_col" property="arrayCol"/>-->
-      <!--  <association property="compositeCol" column="{id=composite_col.id, description=composite_col.description}" javaType="org.example.AllDataTypes.CompositeType"/> !-->
+      <!--  <association property="compositeCol" column="{id=composite_col.id, description=composite_col.description}" javaType="org.dto.AllDataTypes.CompositeType"/> !-->
     </resultMap>
 
     <select id="selectById" resultMap="AllDataTypesResultMap">

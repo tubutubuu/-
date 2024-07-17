@@ -1,4 +1,4 @@
-package org.example;
+package org.dto;
 
 import java.math.BigDecimal;
 import java.sql.*;

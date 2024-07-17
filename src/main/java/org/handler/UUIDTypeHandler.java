@@ -1,4 +1,4 @@
-package org.example;
+package org.handler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

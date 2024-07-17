@@ -1,7 +1,7 @@
 package org.mapper;
 
 
-import org.example.Blog;
+import org.dto.Blog;
 
 public interface BlogMapper {
 

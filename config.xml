@@ -24,7 +24,7 @@
         <mapper resource="BlogMapper.xml"/>
 
         <mapper resource="allDataType.xml"/>
-
+        <mapper resource="DataMapper.xml"/>
     </mappers>
 
 </configuration>

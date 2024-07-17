@@ -5,10 +5,9 @@
 <mapper namespace="org.mapper.DataMapper">
 
     <resultMap id="dataMap" type="org.dto.Data">
-        <id column="primary_col" property="primary_field"/>
-        <result column="data1_col" property="data_field1"/>
-        <result column="data2_col" property="data_field2"/>
-        <result column="something_col" property="something_field"/>
+        <id column="id" property="primary_field"/>
+
+        <result column="somethingvalue" property="something_field"/>
     </resultMap>
 
     <select id="select" parameterType="int" resultMap="dataMap">
@@ -16,9 +15,9 @@
         FROM data
         LEFT JOIN dataRelatedSomething ON data.dataRelatedSomethingId = dataRelatedSomething.dataRelatedSomethingId
         LEFT JOIN something ON dataRelatedSomething.somethingId = something.somethingId
-        <where>
-            #{id}
-        </where>
+        WHERE  data.id = #{id}
+
+
 
     </select>
 </mapper>

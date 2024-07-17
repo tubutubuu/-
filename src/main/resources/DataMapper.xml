@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mapper.DataMapper">
+
+    <resultMap id="dataMap" type="org.dto.Data">
+        <id column="primary_col" property="primary_field"/>
+        <result column="data1_col" property="data_field1"/>
+        <result column="data2_col" property="data_field2"/>
+        <result column="something_col" property="something_field"/>
+    </resultMap>
+
+    <select id="select"  resultMap="dataMap">
+        SELECT *
+        FROM data
+        LEFT JOIN dataRelatedSomething ON data.dataRelatedSomethingId = dataRelatedSomething.dataRelatedSomethingId
+        LEFT JOIN something ON dataRelatedSomething.somethingId = something.somethingId;
+
+    </select>
+</mapper>

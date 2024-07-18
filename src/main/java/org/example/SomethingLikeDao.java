@@ -6,5 +6,5 @@ import org.mapper.DataMapper;
 import java.io.FileReader;
 
 public class SomethingLikeDao {
-
+//no code
 }

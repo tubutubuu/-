@@ -7,6 +7,7 @@ import org.dto.AllDataTypes;
 import org.dto.Data;
 import org.mapper.AllDataTypesMapper;
 import org.mapper.DataMapper;
+import org.playground.Logme;
 
 import java.io.*;
 import java.util.List;
@@ -16,6 +17,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args)
     {
+
+        Logme.echo();
         SomethingLikeClient client = new SomethingLikeClient();
         client.search(1);
 

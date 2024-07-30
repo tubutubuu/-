@@ -14,6 +14,7 @@ public class SomethingLikeClient {
                 System.out.println("none");
             }else{
                 System.out.println(String.format("primary_field is %s, data_field1 is %s, data_field2 is %s, something_field is %s",data.primary_field+"",data.data_field1,data.data_field2,data.something_field));
+            System.out.println("json is "+ data.json);
             }
                     }
         catch (Exception e){

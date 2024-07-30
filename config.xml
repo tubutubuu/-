@@ -3,8 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="database.properties"/>
     <typeHandlers>
         <typeHandler handler="org.handler.UUIDTypeHandler"/>
+        <typeHandler handler="org.handler.JsonbTypeHandler√çç"/>
     </typeHandlers>
     <environments default="development">
         <environment id="development">
@@ -14,7 +16,6 @@
                 <property name="url" value="jdbc:postgresql://localhost:5432/playgrounddb"/>
                 <property name="username" value="pompom"/>
                 <property name="password" value="pompom"/>
-
             </dataSource>
         </environment>
     </environments>

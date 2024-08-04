@@ -1,4 +1,4 @@
-package org.dto;
+package handy.database.table;
 
 public class Blog {
     String text ;

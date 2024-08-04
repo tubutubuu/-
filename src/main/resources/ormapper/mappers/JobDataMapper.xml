@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="handy.database.mapper_interface.BlogMapper.JobDataMapper">
+<resultMap id ="map" type="JobData">
+    <id property="id" column="id"/>
+    <collection property="terms" column="terms" ofType="java.lang.String"/>
+    <collection property="tags" column="tags" ofType="java.lang.String"/>
+</resultMap>
+
+    <select id="select" resultMap="map">
+       select * from  jobdata where id = 'id-1'
+    </select>
+    <insert id="insert">
+        insert into jobdata values ('something','something','something')
+    </insert>
+
+</mapper>

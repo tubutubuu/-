@@ -1,4 +1,4 @@
-package org.handler;
+package handy.database.typehandler;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;

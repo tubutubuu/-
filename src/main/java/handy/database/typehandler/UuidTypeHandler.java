@@ -1,4 +1,4 @@
-package org.handler;
+package handy.database.typehandler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -6,7 +6,7 @@ import org.apache.ibatis.type.JdbcType;
 import java.sql.*;
 import java.util.UUID;
 
-public class UUIDTypeHandler extends BaseTypeHandler<UUID> {
+public class UuidTypeHandler extends BaseTypeHandler<UUID> {
 
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, UUID parameter, JdbcType jdbcType) throws SQLException {

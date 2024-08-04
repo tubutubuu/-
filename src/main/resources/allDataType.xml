@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.mapper.AllDataTypesMapper">
+<mapper namespace="handy.database.mapper_interface.AllDataTypesMapper">
 
     <resultMap id="AllDataTypesResultMap" type="org.dto.AllDataTypes">
         <id column="serial_col" property="serialCol"/>

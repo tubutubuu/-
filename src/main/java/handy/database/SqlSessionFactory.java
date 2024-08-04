@@ -1,5 +1,4 @@
-package org.example;
-
+package handy.database;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
@@ -8,7 +7,7 @@ import java.io.FileReader;
 
 
 
-class SqlSessionFactory{
+public class SqlSessionFactory{
     private static org.apache.ibatis.session.SqlSessionFactory factory ;
     static {
         try {

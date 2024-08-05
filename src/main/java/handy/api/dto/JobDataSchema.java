@@ -1,5 +1,12 @@
 package handy.api.dto;
 
-public class JobDataSchema {
+import handy.database.parameter.Mood;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@Data
+public class JobDataSchema {
+Mood mood ;
 }

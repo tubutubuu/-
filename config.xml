@@ -3,8 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="ormapper/config/database.properties" />
     <typeAliases>
         <typeAlias alias="JobData" type="handy.database.table.JobData"/>
+        <typeAlias alias="Mood" type="handy.database.parameter.Mood" />
+        <typeAlias alias="Data" type="handy.api.dto.JobDataSchema" />
+        <typeAlias alias="EnumTypeHandler" type="handy.database.typehandler.EnumTypeHandler" />
     </typeAliases>
 
     <typeHandlers>

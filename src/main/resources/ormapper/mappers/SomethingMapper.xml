@@ -7,8 +7,11 @@
     <insert id="insert">
         insert into enum_table values ( #{param1});
     </insert>
-    <select id="details">
-        select * from enum_table where enum = #{param1} LIMIT 1
+    <resultMap id="result" type="Data">
+        <result property="mood" column="${enum_table.enum}" typeHandler="EnumTypeHandler"/>
+    </resultMap>
+    <select id="details" resultMap="result">
+        select * from ${enum_table} where ${enum_table.enum} = #{param1} LIMIT 1
     </select>
 
 </mapper>

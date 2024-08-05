@@ -1,5 +1,6 @@
 package handy.server;
 
+import handy.api.dto.JobDataSchema;
 import handy.database.parameter.Mood;
 import handy.database.table.JobData;
 import handy.discovery.ArtifactProviderClient;
@@ -96,9 +97,9 @@ public class Main {
 
         Mood something = Mood.POMPOM;
         if(method == METHOD.READ){
-            Mood mood = ArtifactProviderClient.detailsSomething(something);
-            if(mood != null){
-                System.out.println("mood is " + mood);
+            JobDataSchema schema = ArtifactProviderClient.detailsSomething(something);
+            if(schema != null){
+                System.out.println("mood is " + schema.getMood());
             }
             else{
                 System.out.println("none mood");

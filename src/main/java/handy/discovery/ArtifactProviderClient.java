@@ -1,5 +1,6 @@
 package handy.discovery;
 
+import handy.api.dto.JobDataSchema;
 import handy.database.SqlSessionFactory;
 import handy.database.mapper_interface.JobDataMapper;
 import handy.database.mapper_interface.SomethingMapper;
@@ -88,14 +89,14 @@ public class ArtifactProviderClient{
 
 
     }
-    public static Mood detailsSomething(Mood something){
+    public static JobDataSchema detailsSomething(Mood something){
 
-        Mood mood =  null;
+        JobDataSchema schema =  null;
 
         //log
         try(SqlSession session = SqlSessionFactory.build()) {
             SomethingMapper mapper = session.getMapper(SomethingMapper.class);
-           mood = mapper.details(something);
+           schema = mapper.details(something);
 
 
 
@@ -104,7 +105,7 @@ public class ArtifactProviderClient{
         catch (Exception e){
             e.printStackTrace();
         }
-       return mood ;
+       return schema ;
 
 
     }

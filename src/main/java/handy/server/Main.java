@@ -22,8 +22,10 @@ public class Main {
     @Getter
     public static class FilterCondition {
         enum MatchType {
-            EXACT,
-            PARTIAL
+            EXACT_KEY,
+            PARTIAL_KEY,
+            EXACT_VALUE,
+            PARTIAL_VALUE
         }
         private String searchValue;
         private MatchType matchType;
@@ -72,24 +74,28 @@ public class Main {
 
     private static void Map2(){
         List<FilterCondition> filters = List.of(
-                new FilterCondition("search1", FilterCondition.MatchType.EXACT),    // 全一致
-                new FilterCondition("2", FilterCondition.MatchType.EXACT)     // 部分一致
-     // 部分一致
+                new FilterCondition("search1", FilterCondition.MatchType.EXACT_VALUE),
+                new FilterCondition("2", FilterCondition.MatchType.PARTIAL_VALUE),
+                new FilterCondition(null, FilterCondition.MatchType.EXACT_KEY),
+                new FilterCondition(null, FilterCondition.MatchType.PARTIAL_KEY)
         );
-
         List<Map<String, String>> map = List.of(Repository.method(), Repository.method());
         List<Map<String, String>> filtered = new ArrayList<>();
 
         for (Map<String, String> pconf : map) {
-            for (String mapValue : pconf.values()) {
-                boolean matched = false;
+            boolean matched = false;
+            for (String key : pconf.keySet()) {
+                String value = pconf.get(key);
                 for (FilterCondition filter : filters) {
-                        if ((filter.getMatchType() == FilterCondition.MatchType.EXACT && mapValue.equals(filter.getSearchValue())) ||
-                                (filter.getMatchType() == FilterCondition.MatchType.PARTIAL && mapValue.contains(filter.getSearchValue()))) {
+                    if (filter.getSearchValue() != null) {
+                        if ((filter.getMatchType() == FilterCondition.MatchType.EXACT_VALUE&& value.equals(filter.getSearchValue())) ||
+                                (filter.getMatchType() == FilterCondition.MatchType.PARTIAL_VALUE && value.contains(filter.getSearchValue())) ||
+                                (filter.getMatchType() == FilterCondition.MatchType.EXACT_KEY && key.equals(filter.getSearchValue())) ||
+                                (filter.getMatchType() == FilterCondition.MatchType.PARTIAL_KEY && key.contains(filter.getSearchValue()))) {
                             matched = true;
                             break;
                         }
-
+                    }
                 }
                 if (matched) {
                     filtered.add(pconf);
@@ -97,6 +103,9 @@ public class Main {
                 }
             }
         }
+
+        System.out.println(filtered);
+
     }
     private void A(METHOD method){
         JobData data = null;

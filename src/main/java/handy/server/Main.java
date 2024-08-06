@@ -5,6 +5,8 @@ import handy.database.parameter.Mood;
 import handy.database.repository.Repository;
 import handy.database.table.JobData;
 import handy.discovery.ArtifactProviderClient;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,18 @@ import java.util.UUID;
 enum ORDER  {STRING,UUID,OTHER,POM,MAP};
 enum METHOD {INSERT,READ}
 public class Main {
+    @AllArgsConstructor
+    @Getter
+    public static class FilterCondition {
+        enum MatchType {
+            EXACT,
+            PARTIAL
+        }
+        private String searchValue;
+        private MatchType matchType;
+    }
+
+
     public static void main(String[] args)
     {
        ORDER order = ORDER.MAP;
@@ -33,7 +47,7 @@ public class Main {
                E(method);
                break;
            case MAP:
-               Map();
+               Map2();
                break;
        }
     }
@@ -42,18 +56,47 @@ public class Main {
         String search2 = "2";
         List<Map<String,String>> map = List.of(Repository.method(),Repository.method());
         List<Map<String,String>> filtered = new ArrayList<>();
-        boolean sw1 = true;
+        boolean sw1 = false;
         boolean sw2 = true;
 
         for(Map<String,String> pconf : map){
             for (String mapValue : pconf.values()){
-                if((sw1 && pconf.containsValue(search1) ) || sw2 && mapValue.contains(search2)){
+                if(sw1 && pconf.containsValue(search1)  || sw2 && mapValue.contains(search2)){
                     filtered.add(pconf);
                     break;
                 }
             }
         }
         System.out.println();
+    }
+
+    private static void Map2(){
+        List<FilterCondition> filters = List.of(
+                new FilterCondition("search1", FilterCondition.MatchType.EXACT),    // 全一致
+                new FilterCondition("2", FilterCondition.MatchType.EXACT)     // 部分一致
+     // 部分一致
+        );
+
+        List<Map<String, String>> map = List.of(Repository.method(), Repository.method());
+        List<Map<String, String>> filtered = new ArrayList<>();
+
+        for (Map<String, String> pconf : map) {
+            for (String mapValue : pconf.values()) {
+                boolean matched = false;
+                for (FilterCondition filter : filters) {
+                        if ((filter.getMatchType() == FilterCondition.MatchType.EXACT && mapValue.equals(filter.getSearchValue())) ||
+                                (filter.getMatchType() == FilterCondition.MatchType.PARTIAL && mapValue.contains(filter.getSearchValue()))) {
+                            matched = true;
+                            break;
+                        }
+
+                }
+                if (matched) {
+                    filtered.add(pconf);
+                    break;
+                }
+            }
+        }
     }
     private void A(METHOD method){
         JobData data = null;

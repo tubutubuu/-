@@ -2,19 +2,23 @@ package handy.server;
 
 import handy.api.dto.JobDataSchema;
 import handy.database.parameter.Mood;
+import handy.database.repository.Repository;
 import handy.database.table.JobData;
 import handy.discovery.ArtifactProviderClient;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the` <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-enum ORDER  {STRING,UUID,OTHER,POM};
+enum ORDER  {STRING,UUID,OTHER,POM,MAP};
 enum METHOD {INSERT,READ}
 public class Main {
     public static void main(String[] args)
     {
-       ORDER order = ORDER.POM;
+       ORDER order = ORDER.MAP;
        METHOD method = METHOD.READ;
        switch (order){
            case STRING:
@@ -28,11 +32,28 @@ public class Main {
            case POM:
                E(method);
                break;
+           case MAP:
+               Map();
+               break;
        }
+    }
+    private static void Map(){
+        String search1 = "";
+        String search2 = "2";
+        List<Map<String,String>> map = List.of(Repository.method(),Repository.method());
+        List<Map<String,String>> filtered = new ArrayList<>();
+        boolean sw1 = true;
+        boolean sw2 = true;
 
-
-
-
+        for(Map<String,String> pconf : map){
+            for (String mapValue : pconf.values()){
+                if((sw1 && pconf.containsValue(search1) ) || sw2 && mapValue.contains(search2)){
+                    filtered.add(pconf);
+                    break;
+                }
+            }
+        }
+        System.out.println();
     }
     private void A(METHOD method){
         JobData data = null;

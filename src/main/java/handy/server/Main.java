@@ -8,10 +8,7 @@ import handy.discovery.ArtifactProviderClient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the` <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -73,11 +70,17 @@ public class Main {
     }
 
     private static void Map2(){
+
+        Map<String,String> query  = new HashMap<String,String>();
+        query.put("1","search1");
+        query.put("2","2");
+        query.put("3",null);
+        query.put("4",null);
         List<FilterCondition> filters = List.of(
-                new FilterCondition("search1", FilterCondition.MatchType.EXACT_VALUE),
-                new FilterCondition("2", FilterCondition.MatchType.PARTIAL_VALUE),
-                new FilterCondition(null, FilterCondition.MatchType.EXACT_KEY),
-                new FilterCondition(null, FilterCondition.MatchType.PARTIAL_KEY)
+                new FilterCondition(query.get("1"), FilterCondition.MatchType.EXACT_VALUE),
+                new FilterCondition(query.get("2"), FilterCondition.MatchType.PARTIAL_VALUE),
+                new FilterCondition(query.get("3"), FilterCondition.MatchType.EXACT_KEY),
+                new FilterCondition(query.get("4"), FilterCondition.MatchType.PARTIAL_KEY)
         );
         List<Map<String, String>> map = List.of(Repository.method(), Repository.method());
         List<Map<String, String>> filtered = new ArrayList<>();
